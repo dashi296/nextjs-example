@@ -14,7 +14,7 @@ const CSRPokemonsPage = () => {
   const pokemons = data.results
 
   return (
-    <ul>
+    <ul className="p-2">
       {
         pokemons.map(pokemon => (
           <li key={pokemon.name}>

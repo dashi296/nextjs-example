@@ -15,7 +15,7 @@ const CSRPokemonDetailPage = () => {
   if (error) return <div>Failed to load</div>
   if (!pokemon) return <div>Loading...</div>
 
-  const created = new Date()
+  const created = new Date().toISOString()
 
   return (
     <>

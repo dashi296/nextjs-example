@@ -2,6 +2,7 @@ import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import { pokemonClient } from '../../plugins/pokemon-ts'
 import PokemonDetail from '../../components/PokemonDetail'
+import FormattedDate from '../../components/FormattedDate'
 
 const fetcher = (name: string) => pokemonClient.getPokemonByName(name)
 
@@ -14,10 +15,15 @@ const CSRPokemonDetailPage = () => {
   if (error) return <div>Failed to load</div>
   if (!pokemon) return <div>Loading...</div>
 
+  const created = new Date()
+
   return (
-    <PokemonDetail
-      pokemon={pokemon}
-    />
+    <>
+      <PokemonDetail
+        pokemon={pokemon}
+      />
+      <FormattedDate date={created} />
+    </>
   )
 }
 

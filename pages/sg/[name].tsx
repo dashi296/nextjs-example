@@ -2,29 +2,37 @@ import { pokemonClient } from '../../plugins/pokemon-ts'
 import PokemonDetail from '../../components/PokemonDetail'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { Pokemon } from 'pokenode-ts'
+import FormattedDate from '../../components/FormattedDate'
 
 type Props = {
-  pokemon: Pokemon
+  pokemon: Pokemon,
+  created: string
 }
 
 const SGPokemonDetailPage = ({
-  pokemon
+  pokemon,
+  created
 }: Props) => {
 
   return (
-    <PokemonDetail
-      pokemon={pokemon}
-    />
+    <>
+      <PokemonDetail
+        pokemon={pokemon}
+      />
+      <FormattedDate date={created}/>
+    </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const name = params!.name as string
   const pokemon = await pokemonClient.getPokemonByName(name)
+  const created = new Date().toISOString()
 
   return {
     props: {
-      pokemon
+      pokemon,
+      created
     }
   }
 }

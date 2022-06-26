@@ -6,7 +6,7 @@ type Props = {
 }
 
 const PokemonDetail = ({
-  pokemon
+  pokemon,
 }: Props) => {
   return (
     <div className="p-2">
@@ -25,9 +25,6 @@ const PokemonDetail = ({
         </dt>
         { pokemon.types.map(type => <dd className="pl-4" key={type.slot}>{type.type.name}</dd>) }
       </dl>
-      <div>
-        {`created: ${new Date().toLocaleTimeString('ja-JP')}`}
-      </div>
     </div>
   )
 }

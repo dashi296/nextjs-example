@@ -18,8 +18,8 @@ const SSRPokemonDetailPage = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const name = query.name as string
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const name = params!.name as string
   const pokemon = await pokemonClient.getPokemonByName(name)
 
   return {

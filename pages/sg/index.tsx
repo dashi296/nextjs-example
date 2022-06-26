@@ -18,7 +18,7 @@ const SGPokemonsPage = ({
       {
         pokemons.map(pokemon => (
           <li key={pokemon.name}>
-            <Link href={`/ssr/${pokemon.name}`}>
+            <Link href={`/sg/${pokemon.name}`}>
               {pokemon.name}
             </Link>
           </li>

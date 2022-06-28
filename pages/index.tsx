@@ -51,6 +51,13 @@ const Home: NextPage = () => {
               <p>Static Generation</p>
             </a>
           </Link>
+
+          <Link href="/sg_csr" passHref>
+            <a className={styles.card}>
+              <h2>SG + CSR &rarr;</h2>
+              <p>Static Generation + Client Side Rendering</p>
+            </a>
+          </Link>
         </div>
       </main>
 
